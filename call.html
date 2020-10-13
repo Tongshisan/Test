@@ -1,0 +1,43 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-09 11:14:43
+ * @LastEditTime: 2020-10-09 11:26:17
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /test/call.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let obj = {
+            name: '小李'
+        }
+
+        function func(first, last) {
+            console.log(first + '' + this.name + '' + last)
+        }
+
+        Function.prototype.call = function(ctx) {
+            if(!ctx) {
+                ctx = window || global
+            }
+            ctx.fn = this
+            let rest = [...arguments].slice(1)
+            let res = ctx.fn(...rest)
+
+            delete ctx.fn
+            return res
+        }
+
+        func.call(obj, '哈喽, ', '!')
+    </script>
+</body>
+</html>

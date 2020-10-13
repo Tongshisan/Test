@@ -1,0 +1,45 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-09 14:54:45
+ * @LastEditTime: 2020-10-09 14:59:48
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /test/promise.all.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        Promise.prototype.all = function(promise) {
+            return new Promise((resolve, reject) => {
+                let index = 0
+                let res = []
+
+                if(!promise.length) {
+                    resolve(res)
+                } else {
+                    function processValue(i, data) {
+                        res[i] = data
+                        if(++index === promise.length) {
+                            resolve(res)
+                        }
+                    }
+                    for(let i = 0, len = promise.length; i < len; i++) {
+                        Promise.resolve(promise[i]).then((data) => {
+                            processValue(i, data)
+                        }, (err) => {
+                            reject(err)
+                        })
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>

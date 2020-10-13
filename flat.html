@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @description: 数组扁平化, 默认展开全部
+         * @arr {array} 要展开的数组
+         */        
+        function flat(arr) {
+            let res = []
+            function fun(arr) {
+                for(let i = 0, len = arr.length; i < len; i++) {
+                    if(Array.isArray(arr[i])) {
+                        fun(arr[i])
+                    } else {
+                        res.push(arr[i])
+                    }
+                }
+            }
+            fun(arr)
+            return res
+        }
+
+        // let arr = [2, 4, [3,4, [6,7,5], 4], 8, 9, 0, [2]]
+        // console.log(flat(arr))
+
+        /**
+         * @description: 数组扁平化, 可以根据参数决定展开几层
+         * @arr {array} 要展开的数组
+         * @n {number} 要展开的层数
+         */        
+        function flat(arr, n) {
+            let res = []
+            function fun(arr, n) {
+                console.log('n: ', n)
+                for(let i = 0, len = arr.length; i < len; i++) {
+                    if(Array.isArray(arr[i]) && n > 0) {
+                        n -= 1
+                        fun(arr[i], n)
+                    } else {
+                        res.push(arr[i])
+                    }
+                }
+            }
+            fun(arr, n)
+            return res
+        }
+
+        let arr = [1, [2, 3, [4], 5], 6]
+        console.log(flat(arr, 1))
+
+        
+    </script>
+</body>
+</html>

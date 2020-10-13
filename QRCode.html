@@ -1,0 +1,69 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-07 15:46:35
+ * @LastEditTime: 2020-09-08 15:03:20
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /test/QRCode.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            width: 200px;
+            height: 200px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .background {
+            width: 100px;
+            height: 100px;
+            background: url('./static/img/test.png')
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="test" class="test"></div>
+    <img src="./static/img/test.png" alt="">
+   <img src="sjsj" alt="" onload="test()">
+    <div class="background"></div>
+    <script src="./static/ js/qrcode.min.js"></script>
+    <script>
+
+        function test() {
+            console.log('这也行?')
+        }
+        console.log('guoran ')
+        // const qrcode = document.getElementById('test')
+        // console.log('test')
+        // console.log(QRCode)
+        // new QRCode(qrcode, '哈哈哈哈')
+        // function getUrlBase64(url, ext, callback) {
+        //     var canvas = document.createElement("canvas");   //创建canvas DOM元素
+        //     var ctx = canvas.getContext("2d");
+        //     var img = new Image;
+        //     img.crossOrigin = 'Anonymous';
+        //     img.src = url;
+        //     img.onload = function () {
+        //         canvas.height = 60; //指定画板的高度,自定义
+        //         canvas.width = 85; //指定画板的宽度，自定义
+        //         ctx.drawImage(img, 0, 0, 60, 85); //参数可自定义
+        //         var dataURL = canvas.toDataURL("image/" + ext);
+        //         callback.call(this, dataURL); //回掉函数获取Base64编码
+        //         canvas = null;
+        //     };
+        // }
+
+        // getUrlBase64('http://e.im.baidu.com:8008/app/setting/getQrcode?agentId=109', 'png', function(base64) {
+        //     console.log(base64)
+        // })
+    </script>
+</body>
+</html>

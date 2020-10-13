@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-09 11:32:06
+ * @LastEditTime: 2020-10-09 11:54:37
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /test/apply.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let obj = {
+            name: '小李'
+        }
+        var name = '小童'
+        function func(first, last) {
+            console.log(first + '' + this.name + last)
+        }
+
+        Function.prototype.apply = function(ctx, rest) {
+            if(!ctx) {
+                ctx = window || global
+            }
+            ctx.fn = this
+            let res
+            if(!rest) {
+                res = ctx.fn(rest)
+            } else if(typeof rest === 'object') {
+                res = ctx.fn(...rest)
+            }
+
+            delete ctx.fn
+            return res
+        }
+        
+        func.apply(obj, ['哈喽', '你好'])
+        func.apply(null, ['哈喽', '你好'])
+    </script>
+</body>
+</html>

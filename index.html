@@ -1,0 +1,35 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-24 11:40:16
+ * @LastEditTime: 2020-09-24 12:02:51
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /test/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>我是主页面</h1>
+    <button>点击添加按钮</button>
+    <iframe src="./iframe.html" frameborder="0" id="iframe" name="myFrame"></iframe>
+
+    <script>
+        let btn = document.querySelector('button')
+        let iframe = document.querySelector('iframe')
+        let iDocument = iframe.contentDocument
+        let iw = iframe.contentWindow
+        btn.addEventListener('click', () => {
+            // console.log(iframe.contentWindow)
+            // console.log(window.frames['iframe'])
+            // window.frames['iframe'].window.addBtn()
+            myFrame.window.addBtn()
+        })
+
+    </script>
+</body>
+</html>
