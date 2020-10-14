@@ -1,0 +1,41 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-14 11:28:01
+ * @LastEditTime: 2020-10-14 11:34:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Test/js/deep-clone.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function deepClone(obj) {
+            if(typeof obj === 'RegExp') return new RegExp(obj)
+            if(typeof obj === 'Date') return new Date(obj)
+            if(obj === null || typeof obj !== 'object') return obj
+
+            let cloneObj = Array.isArray(obj) ? [] : {}
+
+            for(let prop in obj) {
+                if(obj.hasOwnProperty(prop)) {
+                    cloneObj[prop] = deepClone(obj[prop])
+                }
+            }
+
+            return cloneObj
+        }
+
+        let arr = [1, 2, {a: 2}]
+        let newArr = deepClone(arr)
+        newArr[2].a = 3
+        console.log(arr)
+        console.log(newArr)
+    </script>
+</body>
+</html>
