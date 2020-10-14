@@ -33,6 +33,7 @@
             ctx.fn = this
             let res
             if(!rest) {
+                // undefined 或 null 不是 Iterator 对象, 不能使用扩展运算符
                 res = ctx.fn(rest)
             } else if(typeof rest === 'object') {
                 res = ctx.fn(...rest)

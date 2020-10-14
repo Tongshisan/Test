@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-14 17:14:56
+ * @LastEditTime: 2020-10-14 17:24:56
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Test/js/new.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个新对象
+        // 这个对象会被执行原型链接
+        // 属性和方法被加入到 this 引用的对象中, 并执行了构造函数中的方法
+        // 如果构造函数返回了一个对象, 那么 this 指向返回的对象, 否则 this 指向新对象
+        function objectFactor() {
+            let obj = {}
+            let [construct, ...args] = [...arguments]
+            obj.__proto__ = construct.prototype
+            let res = construct.apply(obj, args)
+            if(res && (typeof res === 'object' || typeof res === 'function')) return res
+            return obj
+        }
+
+        function Person(name, age) {
+            this.name = name
+            return {
+                age: age
+            }
+        }
+
+        let p1 = objectFactor(Person, '李四', 18)
+        console.log(p1)
+    </script>
+</body>
+</html>

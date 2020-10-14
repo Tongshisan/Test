@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-09 11:14:43
- * @LastEditTime: 2020-10-09 11:26:17
+ * @LastEditTime: 2020-10-14 17:03:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /test/call.html
@@ -29,6 +29,7 @@
             if(!ctx) {
                 ctx = window || global
             }
+            // this 指向当前函数
             ctx.fn = this
             let rest = [...arguments].slice(1)
             let res = ctx.fn(...rest)
