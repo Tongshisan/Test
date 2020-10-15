@@ -26,25 +26,20 @@ body {
     border: 1px solid #000;
     border-radius: 50%;
 }
-.second-hand {
+.hand {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 150px;
     height: 0;
+    transform: rotate(-45deg);
+    transform-origin: left;
+}
+.second-hand {
+    left: 50%;
+    width: 150px;
     border: 1px solid red;
     animation: second-hand 60s linear infinite;
 }
-.second-hand2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    height: 0;
-    border: 1px solid green;
-    animation: second-hand2 1s linear infinite;
-}
-
 @keyframes second-hand {
     0% {
         transform: rotate(0deg);
@@ -55,6 +50,49 @@ body {
         transform-origin: left;
     }
 }
+.minute-hand {
+    width: 100px;
+    border: 1px solid green;
+    animation: minute-hand 3600s linear infinite;
+}
+@keyframes minute-hand {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: left;
+    }
+    100% {
+        transform: rotate(360deg);
+        transform-origin: left;
+    }
+}
+.hour-hand {
+    width: 75px;
+    border: 1px solid #000;
+    animation: hour-hand 86400s linear infinite;
+}
+@keyframes hour-hand {
+    0% {
+        transform: rotate(0deg);
+        transform-origin: left;
+    }
+    100% {
+        transform: rotate(360deg);
+        transform-origin: left;
+    }
+}
+
+
+.second-hand2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 0;
+    border: 1px solid green;
+    animation: second-hand2 1s linear infinite;
+}
+
+
 
 @keyframes second-hand2 {
     to {
