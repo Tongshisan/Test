@@ -31,8 +31,6 @@ body {
     top: 50%;
     left: 50%;
     height: 0;
-    transform: rotate(-45deg);
-    transform-origin: left;
 }
 .second-hand {
     left: 50%;
@@ -42,11 +40,11 @@ body {
 }
 @keyframes second-hand {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(-90deg);
         transform-origin: left;
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(270deg);
         transform-origin: left;
     }
 }
@@ -57,11 +55,11 @@ body {
 }
 @keyframes minute-hand {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(-90deg);
         transform-origin: left;
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(270deg);
         transform-origin: left;
     }
 }
@@ -72,11 +70,11 @@ body {
 }
 @keyframes hour-hand {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(-90deg);
         transform-origin: left;
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(270deg);
         transform-origin: left;
     }
 }
