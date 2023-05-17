@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .input:focus {
+      border: 1px solid red;
+      color: aqua;
+    }
+
+    #test {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" class="input" name="" id="input">
+  <div id="test">点击我是 input 不会失去焦点</div>
+
+  <script>
+    // const div = document.getElementById('test');
+    // div.addEventListener('mousedown', (e) => {
+    //   e.preventDefault()
+    // })
+    const input = document.getElementById('input');
+    document.body.addEventListener('mousedown', (e) => {
+      console.log(e.target === input);
+      if (e.target !== input) {
+        e.preventDefault()
+      }
+    })
+  </script>
+</body>
+</html>
